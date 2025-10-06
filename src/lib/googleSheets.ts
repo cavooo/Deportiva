@@ -1,5 +1,3 @@
-import { GoogleSpreadsheet } from 'google-spreadsheet';
-import { GoogleAuth } from 'google-auth-library';
 import { google } from "googleapis";
 
 // Tipo para un jugador

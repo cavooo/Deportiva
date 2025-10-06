@@ -1,10 +1,10 @@
 import Link from "next/link";
-
+import Image from "next/image";
 export default function Home() {
   return (
     <div className="flex flex-col gap-8">
       <div className="group rounded-lg p-8 text-center flex items-center justify-center relative h-[500px]">
-        <img src="/depoEquipo.webp" alt="Torneo Juvenil" className="absolute -z-1 top-0 left-0 w-full h-full object-cover rounded-lg" />
+        <Image src="/depoEquipo.webp" alt="Torneo Juvenil" className="absolute -z-1 top-0 left-0 w-full h-full object-cover rounded-lg" />
         <div className="max-w-3xl mx-auto z-10 text-white">
           <h1 className="text-5xl font-bold  mb-6">Torneo de Fútbol Juvenil Masculino</h1>
           <p className="py-6 text-lg">

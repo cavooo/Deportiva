@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import Image from "next/image";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,12 +22,12 @@ export default function RootLayout({
         <div>
           <header className="z-[9999] sticky top-0 bg-white text-black  shadow-lg">
             <div className="max-w-6xl mx-auto flex justify-between items-center p-2">
-              <a href="/">
+              <Link href="/">
                 <div className="w-fit flex items-center gap-2">
-                  <img src="/logo.png" alt="Logo Deportiva Francesa" className="w-15 mr-2" />
+                  <Image src="/logo.png" alt="Logo Deportiva Francesa" className="w-15 mr-2" />
                   <h1 className="text-xl hidden md:block font-bold">Deportiva Francesa</h1>
                 </div>
-              </a>
+              </Link>
               <nav>
                 <ul className="flex space-x-4">
                   <li><Link href="/" className="font-medium hover:text-gray-600 duration-300">Inicio</Link></li>

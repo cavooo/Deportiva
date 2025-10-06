@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, FormEvent, ChangeEvent } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 interface Jugador {
@@ -25,8 +25,8 @@ interface FormData {
 export default function InscripcionForm() {
   const router = useRouter();
   // Configuración para el número de jugadores y socios requeridos
-  const [maxJugadores, setMaxJugadores] = useState(3);
-  const [minSociosRequeridos, setMinSociosRequeridos] = useState(2);
+  const maxJugadores = 11
+  const minSociosRequeridos = 5
 
   const [formData, setFormData] = useState<FormData>({
     nombreEquipo: '',
@@ -176,40 +176,6 @@ export default function InscripcionForm() {
     }
   };
 
-  // Función para agregar un jugador
-  const agregarJugador = () => {
-    if (formData.jugadores.length < 10) { // Límite máximo de jugadores
-      setFormData(prev => {
-        const updatedJugadores = [...prev.jugadores, {
-          nombre: '',
-          edad: '',
-          esSocio: false,
-          dni: ''
-        }];
-
-        return {
-          ...prev,
-          jugadores: updatedJugadores,
-          maxJugadores: updatedJugadores.length
-        };
-      });
-    }
-  };
-
-  // Función para eliminar un jugador
-  const eliminarJugador = (index: number) => {
-    if (formData.jugadores.length > 1) { // Mantener al menos un jugador
-      setFormData(prev => {
-        const updatedJugadores = prev.jugadores.filter((_, i) => i !== index);
-
-        return {
-          ...prev,
-          jugadores: updatedJugadores,
-          maxJugadores: updatedJugadores.length
-        };
-      });
-    }
-  };
 
   return (
     <div className="max-w-4xl relative mx-auto px-4">
