@@ -9,6 +9,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Torneo Juvenil - Deportiva Francesa",
   description: "Inscripción al torneo de fútbol juvenil masculino - Deportiva Francesa",
+  icons: {
+    icon: '/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png',
+  },
 };
 
 export default function RootLayout({
@@ -24,7 +29,7 @@ export default function RootLayout({
             <div className="max-w-6xl mx-auto flex justify-between items-center p-2">
               <Link href="/">
                 <div className="w-fit flex items-center gap-2">
-                  <Image src="/logo.png" alt="Logo Deportiva Francesa" className="w-15 mr-2" />
+                  <Image src="/logo.png" width={50} height={50} alt="Logo Deportiva Francesa" className="w-15 mr-2" />
                   <h1 className="text-xl hidden md:block font-bold">Deportiva Francesa</h1>
                 </div>
               </Link>

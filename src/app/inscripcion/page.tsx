@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 interface Jugador {
   nombre: string;
@@ -17,32 +18,34 @@ interface FormData {
   telefono: string;
   dniResponsable: string;
   aceptaTerminos: boolean;
+  aceptaPagado: boolean;
   comentarios: string;
   maxJugadores: number;
-  minSociosRequeridos: number;
+  maxSociosRequeridos: number;
 }
 
 export default function InscripcionForm() {
   const router = useRouter();
   // Configuración para el número de jugadores y socios requeridos
-  const maxJugadores = 11
-  const minSociosRequeridos = 5
+  const maxJugadores = 12
+  const maxSociosRequeridos = 5
 
   const [formData, setFormData] = useState<FormData>({
     nombreEquipo: '',
-    jugadores: Array.from({ length: maxJugadores }, () => ({
-      nombre: '',
-      edad: '',
+    jugadores: Array.from({ length: maxJugadores }, (_, index) => ({
+      nombre: "",
+      edad: "",
       esSocio: false,
-      dni: ''
+      dni: ""
     })),
     email: '',
     telefono: '',
     dniResponsable: '',
     aceptaTerminos: false,
+    aceptaPagado: false,
     comentarios: '',
     maxJugadores: maxJugadores,
-    minSociosRequeridos: minSociosRequeridos
+    maxSociosRequeridos: maxSociosRequeridos
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -109,8 +112,8 @@ export default function InscripcionForm() {
 
     // Validar número mínimo de socios
     const sociosCount = formData.jugadores.filter(jugador => jugador.esSocio).length;
-    if (sociosCount < formData.minSociosRequeridos) {
-      errors.sociosRequeridos = `Se requieren al menos ${formData.minSociosRequeridos} socios en el equipo`;
+    if (sociosCount > formData.maxSociosRequeridos) {
+      errors.sociosRequeridos = `Se requieren máximo ${formData.maxSociosRequeridos} socios en el equipo`;
     }
 
     if (!formData.email.trim()) {
@@ -182,11 +185,11 @@ export default function InscripcionForm() {
       <h1 className="text-3xl font-bold text-center mb-8 rugby-blue">Inscripción al Torneo</h1>
 
       {Object.keys(validationErrors).length > 0 && (
-        <div className="fixed bg-white border border-red-600 p-4 rounded-md shadow-lg">
+        <div className="fixed top-26 left-1/4 w-1/2 bg-white border border-red-600 p-4 rounded-md shadow-lg">
           <p className="text-red-600 text-center">{Object.values(validationErrors).join(', ')}</p>
         </div>
       )}
-      <form onSubmit={handleSubmit} className="bg-white border border-gray-300 p-6 rounded-lg duration-300 shadow hover:shadow-lg">
+      <form onSubmit={handleSubmit} className="card">
         {/* Configuración del equipo */}
         <div className="mb-8">
           <h2 className="text-xl font-semibold mb-4 text-red-600 border-b pb-2">Datos del Equipo</h2>
@@ -212,7 +215,7 @@ export default function InscripcionForm() {
 
             <div className="form-control w-full">
               <label className="block text-sm font-medium mb-2">
-                Se requieren minimo {minSociosRequeridos} socios en el equipo*
+                Se requieren máximo {maxSociosRequeridos} socios en el equipo*
               </label>
               {validationErrors.sociosRequeridos && (
                 <p className="mt-1 text-sm text-red-600">{validationErrors.sociosRequeridos}</p>
@@ -231,15 +234,6 @@ export default function InscripcionForm() {
             <div key={index} className="mb-6 p-4 border border-gray-200 rounded-lg bg-gray-50 hover:shadow-md transition-all duration-200">
               <div className="flex justify-between items-center mb-3">
                 <h3 className="font-medium">Jugador {index + 1}</h3>
-                {/* {formData.jugadores.length > 1 && (
-                  <button
-                    type="button"
-                    onClick={() => eliminarJugador(index)}
-                    className="text-red-600 hover:text-red-700 text-sm"
-                  >
-                    Eliminar
-                  </button>
-                )} */}
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -375,17 +369,22 @@ export default function InscripcionForm() {
         </div>
 
         <div className="form-control mt-6">
-          <label className="block text-sm font-medium mb-2">
-            Comentarios adicionales
-          </label>
-          <textarea
-            id="comentarios"
-            name="comentarios"
-            value={formData.comentarios}
-            onChange={handleChange}
-            placeholder="Información adicional que desee compartir"
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 h-24"
-          ></textarea>
+          <h2 className="text-xl font-semibold mb-4 text-red-600 border-b pb-2">Importante</h2>
+          <ol className='list-decimal ml-10'>
+            <li className='text-lg text-gray-800'>El torneo tiene un costo de 25.000$ por jugador</li>
+            <li className='text-lg'>Esto incluye:</li>
+            <ul className='ml-5 list-disc'>
+              <li className='text-gray-800'>Remera</li>
+              <li className='text-gray-800'>🍌Hidratacion + Fruta</li>
+              <li className='text-gray-800'>🏆 Premios</li>
+            </ul>
+            <li className='text-lg'>Pasar el comprobante con el monto total a:</li>
+            <ul className='ml-5 list-disc'>
+              <li className='text-gray-800'><Link href="https://wa.me/5491131881755" className='hover:border-b text-blue-400 hover:text-blue-500' target="_blank">+54 9 11 3188 1755</Link></li>
+              <li className='text-gray-800'><Link href="https://wa.me/5491123383316" className='hover:border-b text-blue-400 hover:text-blue-500' target="_blank">+54 9 11 2338 3316</Link></li>
+            </ul>
+            <p className='text-gray-600'>Cualquier duda o consulta también escribanle a ellos</p>
+          </ol>
         </div>
 
         <div className="form-control mt-6 bg-gray-50 p-4 rounded-lg border border-gray-200">
@@ -405,8 +404,22 @@ export default function InscripcionForm() {
             <p className="mt-1 text-sm text-red-600">{validationErrors.aceptaTerminos}</p>
           )}
         </div>
+        <div className="form-control mt-4 bg-gray-50 p-4 rounded-lg border border-gray-200">
+          <label className="flex items-center gap-2 cursor-pointer">
+            <input
+              type="checkbox"
+              id="aceptaPagado"
+              name="aceptaPagado"
+              checked={formData.aceptaPagado}
+              onChange={handleChange}
+              className="h-4 w-4"
+              required
+            />
+            <span className="text-sm">Ya mande el comprobante de pago al cualquiera de los números indicados</span>
+          </label>
+        </div>
 
-        <div className="mt-8 text-center">
+        <div className="mt-4 text-center">
           <button
             type="submit"
             disabled={isSubmitting}

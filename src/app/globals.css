@@ -6,6 +6,8 @@
   --background-end-rgb: 255, 255, 255;
   --rugby-green: 0, 100, 0;
   --rugby-blue: 0, 71, 171;
+
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -58,4 +60,13 @@ body {
 
 .btn-rugby-blue:hover {
   background-color: rgba(var(--rugby-blue), 0.9);
+}
+
+.card {
+  @apply border border-gray-200 rounded-md p-6 shadow-md hover:shadow-xl duration-300
+  /* background-color: white;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  border-color: #d1d5dc;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1); */
 }

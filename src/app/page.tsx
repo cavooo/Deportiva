@@ -1,12 +1,22 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Torneo Juvenil - Deportiva Francesa",
+  description: "Inscripción al torneo de fútbol juvenil masculino - Deportiva Francesa",
+  icons: {
+    icon: '/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png',
+  },
+};
 export default function Home() {
   return (
     <div className="flex flex-col gap-8">
       <div className="group rounded-lg p-8 text-center flex items-center justify-center relative h-[500px]">
-        <Image src="/depoEquipo.webp" alt="Torneo Juvenil" className="absolute -z-1 top-0 left-0 w-full h-full object-cover rounded-lg" />
+        <Image src="/depoEquipo.webp" width={1000} height={1000} alt="Torneo Juvenil" className="absolute -z-1 top-0 left-0 w-full h-full object-cover rounded-lg" />
         <div className="max-w-3xl mx-auto z-10 text-white">
-          <h1 className="text-5xl font-bold  mb-6">Torneo de Fútbol Juvenil Masculino</h1>
+          <h1 className="text-5xl font-bold  mb-6">Torneo de Fútbol Juvenil</h1>
           <p className="py-6 text-lg">
             Bienvenido al torneo juvenil de fútbol masculino organizado por el Club Deportiva Francesa.
             Inscribe a tu equipo y sé parte de esta gran competencia.
@@ -22,21 +32,21 @@ export default function Home() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-        <div className="bg-white p-6 rounded-lg shadow-md">
+        <div className="card">
           <h2 className="text-xl font-bold mb-4 rugby-blue">Categorías</h2>
           <p>Participan equipos en categorías Sub-15, Sub-17 y Sub-19.</p>
         </div>
-        <div className="bg-white p-6 rounded-lg shadow-md">
+        <div className="card">
           <h2 className="text-xl font-bold mb-4 rugby-blue">Fechas</h2>
           <p>El torneo se realizará del 15 de agosto al 30 de septiembre de 2024.</p>
         </div>
-        <div className="bg-white p-6 rounded-lg shadow-md">
+        <div className="card">
           <h2 className="text-xl font-bold mb-4 rugby-blue">Premios</h2>
           <p>Trofeos y medallas para los equipos ganadores y destacados del torneo.</p>
         </div>
       </div>
 
-      <div className="bg-white p-6 rounded-lg shadow-md mt-6">
+      <div className="card mt-6">
         <h2 className="text-2xl font-bold mb-4 rugby-blue">Sobre el Club</h2>
         <p className="mb-4">
           Deportiva Francesa es un prestigioso club de rugby con una larga tradición en la formación
