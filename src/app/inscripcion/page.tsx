@@ -13,6 +13,7 @@ interface Jugador {
 
 interface FormData {
   nombreEquipo: string;
+  categoria: string;
   jugadores: Jugador[];
   email: string;
   telefono: string;
@@ -30,8 +31,17 @@ export default function InscripcionForm() {
   const maxJugadores = 12
   const maxSociosRequeridos = 5
 
+  // Definir las categorías y sus rangos de años
+  const categorias = [
+    { nombre: "9-10 años", añosNacimiento: [2015, 2016], edadMin: 9, edadMax: 10 },
+    { nombre: "11-12 años", añosNacimiento: [2013, 2014], edadMin: 11, edadMax: 12 },
+    { nombre: "13-14 años", añosNacimiento: [2011, 2012], edadMin: 13, edadMax: 14 },
+    { nombre: "15-16 años", añosNacimiento: [2009, 2010], edadMin: 15, edadMax: 16 },
+  ];
+
   const [formData, setFormData] = useState<FormData>({
     nombreEquipo: '',
+    categoria: '',
     jugadores: Array.from({ length: maxJugadores }, (_, index) => ({
       nombre: "",
       edad: "",
@@ -99,6 +109,13 @@ export default function InscripcionForm() {
       errors.nombreEquipo = 'El nombre del equipo es obligatorio';
     }
 
+    if (!formData.categoria) {
+      errors.categoria = 'Debe seleccionar una categoría';
+    }
+
+    // Obtener la categoría seleccionada
+    const categoriaSeleccionada = categorias.find(cat => cat.nombre === formData.categoria);
+
     // Validar jugadores
     formData.jugadores.forEach((jugador, index) => {
       if (!jugador.nombre.trim()) {
@@ -107,6 +124,16 @@ export default function InscripcionForm() {
 
       if (!jugador.dni.trim()) {
         errors[`jugadores.${index}.dni`] = 'El DNI del jugador es obligatorio';
+      }
+
+      // Validar edad según la categoría seleccionada
+      if (categoriaSeleccionada && jugador.edad) {
+        const edadJugador = parseInt(jugador.edad);
+        if (!isNaN(edadJugador)) {
+          if (edadJugador < categoriaSeleccionada.edadMin || edadJugador > categoriaSeleccionada.edadMax) {
+            errors[`jugadores.${index}.edad`] = `La edad debe estar entre ${categoriaSeleccionada.edadMin} y ${categoriaSeleccionada.edadMax} años para esta categoría`;
+          }
+        }
       }
     });
 
@@ -210,6 +237,30 @@ export default function InscripcionForm() {
               />
               {validationErrors.nombreEquipo && (
                 <p className="mt-1 text-sm text-red-600">{validationErrors.nombreEquipo}</p>
+              )}
+            </div>
+
+            <div className="form-control w-full">
+              <label className="block text-sm font-medium mb-2">
+                Categoría
+              </label>
+              <select
+                id="categoria"
+                name="categoria"
+                value={formData.categoria}
+                onChange={handleChange}
+                className={`w-full px-3 py-2 border ${validationErrors.categoria ? 'border-red-600' : 'border-gray-300'} rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200`}
+                required
+              >
+                <option value="">Seleccionar categoría</option>
+                {categorias.map((cat) => (
+                  <option key={cat.nombre} value={cat.nombre}>
+                    {cat.nombre} (Nacidos en {cat.añosNacimiento.join(' y ')})
+                  </option>
+                ))}
+              </select>
+              {validationErrors.categoria && (
+                <p className="mt-1 text-sm text-red-600">{validationErrors.categoria}</p>
               )}
             </div>
 
@@ -371,10 +422,9 @@ export default function InscripcionForm() {
         <div className="form-control mt-6">
           <h2 className="text-xl font-semibold mb-4 text-red-600 border-b pb-2">Importante</h2>
           <ol className='list-decimal ml-10'>
-            <li className='text-lg text-gray-800'>El torneo tiene un costo de 25.000$ por jugador</li>
+            <li className='text-lg text-gray-800'>El torneo tiene un costo de 35.000$ por jugador</li>
             <li className='text-lg'>Esto incluye:</li>
             <ul className='ml-5 list-disc'>
-              <li className='text-gray-800'>Remera</li>
               <li className='text-gray-800'>🍌Hidratacion + Fruta</li>
               <li className='text-gray-800'>🏆 Premios</li>
             </ul>

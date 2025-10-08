@@ -11,6 +11,7 @@ export interface Jugador {
 // Tipos para los datos del formulario
 export interface FormData {
     nombreEquipo: string;
+    categoria: string;
     jugadores: Jugador[];
     email: string;
     telefono: string;
@@ -51,6 +52,7 @@ export async function saveToGoogleSheets(data: FormData): Promise<boolean> {
             // Preparar datos para la fila
             const row = [
                 data.nombreEquipo,
+                data.categoria,
                 jugador.nombre,
                 data.email,
                 data.telefono,

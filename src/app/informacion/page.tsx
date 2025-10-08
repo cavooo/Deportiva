@@ -1,8 +1,10 @@
 import { Metadata } from "next";
+import Link from "next/link";
+
 
 export const metadata: Metadata = {
-  title: "Torneo Juvenil - Deportiva Francesa",
-  description: "Inscripción al torneo de fútbol juvenil masculino - Deportiva Francesa",
+  title: "Torneo Infantil - Deportiva Francesa",
+  description: "Reglamento del torneo de fútbol infantil - Deportiva Francesa",
   icons: {
     icon: '/logo.png',
     shortcut: '/logo.png',
@@ -13,97 +15,91 @@ export const metadata: Metadata = {
 export default function Informacion() {
   return (
     <div className="max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold text-center mb-8 rugby-blue">Información del Torneo</h1>
+      <h1 className="text-3xl font-bold text-center mb-8 rugby-blue">Reglamento Torneo Infantiles ADF</h1>
 
-      <div className="bg-white p-6 rounded-lg shadow-md mb-6">
+      <div className="card mb-6">
         <h2 className="text-2xl font-bold mb-4 rugby-blue">Detalles Generales</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <h3 className="text-xl font-semibold mb-2">Fechas</h3>
-            <p className="mb-4">Del 15 de agosto al 30 de septiembre de 2024</p>
+            <h3 className="text-xl font-semibold mb-2">Fecha</h3>
+            <p className="mb-4">07/12/2025</p>
 
-            <h3 className="text-xl font-semibold mb-2">Lugar</h3>
-            <p className="mb-4">Instalaciones del Club Deportiva Francesa</p>
+            <h3 className="text-xl font-semibold mb-2">Ubicación y horarios</h3>
+            <p className="mb-4">El torneo se llevará a cabo durante todo el día (9 am a 18 hs) en el Club Asociación Deportiva Francesa, KM 42,5, Pilar</p>
 
             <h3 className="text-xl font-semibold mb-2">Categorías</h3>
+            <p className="mb-2">Habrá 4 categorías de varones:</p>
             <ul className="list-disc pl-5 mb-4">
-              <li>Sub-15 (nacidos en 2009-2010)</li>
-              <li>Sub-17 (nacidos en 2007-2008)</li>
-              <li>Sub-19 (nacidos en 2005-2006)</li>
+              <li>9-10 años (Nacidos en los años 2015 y 2016)</li>
+              <li>11-12 años (Nacidos en los años 2013 y 2014)</li>
+              <li>13-14 años (Nacidos en los años 2011 y 2012)</li>
+              <li>15-16 años (Nacidos en los años 2009 y 2010)</li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-xl font-semibold mb-2">Formato</h3>
-            <p className="mb-4">Fase de grupos seguida de eliminatorias directas</p>
-
-            <h3 className="text-xl font-semibold mb-2">Equipos</h3>
-            <p className="mb-4">Máximo 12 equipos por categoría</p>
-
-            <h3 className="text-xl font-semibold mb-2">Premios</h3>
+            <h3 className="text-xl font-semibold mb-2">Cupos</h3>
             <ul className="list-disc pl-5 mb-4">
-              <li>Trofeo para el campeón y subcampeón</li>
-              <li>Medallas para los tres primeros lugares</li>
-              <li>Reconocimientos individuales (goleador, mejor jugador, etc.)</li>
+              <li>Hay un límite de 12 equipos por categoría</li>
+              <li>Cada equipo puede anotar como máximo 12 jugadores</li>
+              <li>Cada equipo va a tener en cancha 7 jugadores + 1 arquero</li>
+              <li>Cada equipo puede incluir máximo 5 socios del club Deportiva Francesa</li>
             </ul>
+
+            <h3 className="text-xl font-semibold mb-2">Valor</h3>
+            <p className="mb-4">El torneo tendrá un valor de $35.000 pesos por jugador</p>
           </div>
         </div>
       </div>
 
-      <div className="bg-white p-6 rounded-lg shadow-md mb-6">
-        <h2 className="text-2xl font-bold mb-4 rugby-blue">Reglamento</h2>
+      <div className="card mb-6">
+        <h2 className="text-2xl font-bold mb-4 rugby-blue">Etapas de inscripción</h2>
 
         <div className="mb-4">
-          <h3 className="text-xl font-semibold mb-2">Reglas Básicas</h3>
+          <p className="mb-4">Tendrán tiempo para inscribirse hasta el domingo 30 de noviembre inclusive. No serán aceptados equipos después de esa fecha.</p>
+          <p className="mb-2">Las inscripciones se hacen por equipo, y quedan confirmada una vez se cumplan los siguientes pasos:</p>
           <ul className="list-disc pl-5 mb-4">
-            <li>Partidos de 2 tiempos de 35 minutos cada uno</li>
-            <li>Máximo 5 sustituciones por partido</li>
-            <li>Sistema de puntuación: 3 puntos por victoria, 1 por empate, 0 por derrota</li>
-            <li>En caso de empate en eliminatorias: penales directos (5 por equipo)</li>
+            <li>Efectuar el pago y enviar el comprobante (Vía transferencia al CBU indicado)</li>
+            <li>Completar el form de inscripción con los datos de TODOS los jugadores y padre respondable</li>
           </ul>
         </div>
 
         <div>
-          <h3 className="text-xl font-semibold mb-2">Requisitos</h3>
+          <h3 className="text-xl font-semibold mb-2">¿Qué incluye el torneo?</h3>
           <ul className="list-disc pl-5">
-            <li>Todos los jugadores deben presentar identificación oficial</li>
-            <li>Uniforme completo (camiseta numerada, shorts, medias, espinilleras)</li>
-            <li>Cada equipo debe proporcionar un balón reglamentario</li>
-            <li>Certificado médico de aptitud física para cada jugador</li>
+            <li>Aguas y gatorade por equipo + puestos de hidratación</li>
+            <li>Puestos de frutas durante todo el día</li>
+            <li>Pileta disponible</li>
+            <li>Trofeos y medallas para los ganadores</li>
+            <li>Fotógrafo durante todo el evento</li>
           </ul>
         </div>
       </div>
 
-      <div className="bg-white p-6 rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold mb-4 rugby-blue">Contacto</h2>
+      <div className="card mb-6">
+        <h2 className="text-2xl font-bold mb-4 rugby-blue">Reglamento y fixture</h2>
+        <p className="mb-4">El reglamento y el fixture del torneo serán publiados en la semana del torneo, una vez las inscripciones hayan concluído.</p>
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <h3 className="text-xl font-semibold mb-2">Dirección</h3>
-            <p className="mb-4">
-              Av. Principal 1234<br />
-              Ciudad Deportiva<br />
-              CP 12345
-            </p>
+      <div className="card">
+        <h2 className="text-2xl font-bold mb-4 rugby-blue">Contactos para la inscripción</h2>
 
-            <h3 className="text-xl font-semibold mb-2">Teléfono</h3>
-            <p className="mb-4">(123) 456-7890</p>
-          </div>
-
-          <div>
-            <h3 className="text-xl font-semibold mb-2">Email</h3>
-            <p className="mb-4">torneo@deportivafrancesa.com</p>
-
-            <h3 className="text-xl font-semibold mb-2">Redes Sociales</h3>
-            <p>
-              Instagram: @deportivafrancesa<br />
-              Facebook: /DeportivaFrancesaOficial<br />
-              Twitter: @DepFrancesa
-            </p>
-          </div>
+        <div className="flex gap-2 items-center w-full justify-center mt-10">
+          <Link
+            href="https://wa.me/5491131881755"
+            className="bg-red-600 hover:bg-red-700 transition-colors px-6 py-2 rounded-md font-medium text-white inline-block"
+          >
+            Hablar con Santi
+          </Link>
+          <Link
+            href="https://wa.me/5491123383316"
+            className="bg-red-600 hover:bg-red-700 transition-colors px-6 py-2 rounded-md font-medium text-white inline-block"
+          >
+            Hablar con Lulo
+          </Link>
         </div>
       </div>
-    </div>
+    </div >
   );
 }

@@ -2,62 +2,58 @@ import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "Torneo Juvenil - Deportiva Francesa",
-  description: "Inscripción al torneo de fútbol juvenil masculino - Deportiva Francesa",
+  title: "Torneo Infantil - Deportiva Francesa",
+  description: "Torneo de fútbol infantil - Deportiva Francesa",
   icons: {
     icon: '/logo.png',
     shortcut: '/logo.png',
     apple: '/logo.png',
   },
 };
+
 export default function Home() {
   return (
     <div className="flex flex-col gap-8">
-      <div className="group rounded-lg p-8 text-center flex items-center justify-center relative h-[500px]">
-        <Image src="/depoEquipo.webp" width={1000} height={1000} alt="Torneo Juvenil" className="absolute -z-1 top-0 left-0 w-full h-full object-cover rounded-lg" />
+      <div className="group rounded-lg p-8 text-center flex items-center justify-center relative h-[80lvh]">
+        <Image src="/depoEquipo.webp" width={2000} height={1000} alt="Torneo Infantil" className="absolute -z-1 top-0 left-0 w-full h-full object-cover rounded-lg" />
         <div className="max-w-3xl mx-auto z-10 text-white">
-          <h1 className="text-5xl font-bold  mb-6">Torneo de Fútbol Juvenil</h1>
+          <h1 className="text-5xl font-bold mb-6">Torneo de Fútbol Infantil</h1>
           <p className="py-6 text-lg">
-            Bienvenido al torneo juvenil de fútbol masculino organizado por el Club Deportiva Francesa.
-            Inscribe a tu equipo y sé parte de esta gran competencia.
+            Bienvenido al torneo infantil de fútbol organizado por el Club Deportiva Francesa.
+            Consulta toda la información sobre el torneo.
           </p>
           <Link
-            href="/inscripcion"
+            href="/informacion"
             className="bg-red-600 px-8 py-3 rounded-md font-medium text-white"
           >
-            Inscríbete Ahora
+            Ver Información
           </Link>
         </div>
         <div className="absolute z-1 inset-0 bg-black/50 group-hover:bg-black/70 transition duration-300 rounded-lg" />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-        <div className="card">
-          <h2 className="text-xl font-bold mb-4 rugby-blue">Categorías</h2>
-          <p>Participan equipos en categorías Sub-15, Sub-17 y Sub-19.</p>
-        </div>
-        <div className="card">
-          <h2 className="text-xl font-bold mb-4 rugby-blue">Fechas</h2>
-          <p>El torneo se realizará del 15 de agosto al 30 de septiembre de 2024.</p>
-        </div>
-        <div className="card">
-          <h2 className="text-xl font-bold mb-4 rugby-blue">Premios</h2>
-          <p>Trofeos y medallas para los equipos ganadores y destacados del torneo.</p>
+      <div className="card w-[80%] mx-auto flex items-center flex-col">
+        <h2 className="text-3xl font-bold mb-3 text-red-600">¡Vení a jugar el Gran Torneo de Fútbol Infantil de la Deportiva Francesa!</h2>
+        <p className="text-lg mb-4">Una jornada inolvidable donde los más chicos podrán demostrar su talento, hacer nuevos amigos y disfrutar del deporte en un ambiente familiar. ¡No te lo pierdas! Inscribí a tu equipo y sé parte de esta gran fiesta del fútbol infantil.</p>
+        <p className="text-lg mb-4">Habla con nosotros para más información sobre el torneo y cómo inscribirte.</p>
+        <div className="flex gap-2 items-center">
+          <Link
+            href="https://wa.me/5491131881755"
+            className="bg-red-600 hover:bg-red-700 transition-colors px-6 py-2 rounded-md font-medium text-white inline-block"
+          >
+            Hablar con Santi
+          </Link>
+          <Link
+            href="https://wa.me/5491123383316"
+            className="bg-red-600 hover:bg-red-700 transition-colors px-6 py-2 rounded-md font-medium text-white inline-block"
+          >
+            Hablar con Lulo
+          </Link>
         </div>
       </div>
 
-      <div className="card mt-6">
-        <h2 className="text-2xl font-bold mb-4 rugby-blue">Sobre el Club</h2>
-        <p className="mb-4">
-          Deportiva Francesa es un prestigioso club de rugby con una larga tradición en la formación
-          de jóvenes deportistas. Este torneo de fútbol juvenil es parte de nuestras iniciativas para
-          promover el deporte y los valores del trabajo en equipo entre los jóvenes.
-        </p>
-        <p>
-          Nuestras instalaciones cuentan con campos de primera calidad y todas las comodidades para
-          que los participantes y espectadores disfruten de una experiencia deportiva inolvidable.
-        </p>
-      </div>
+
+
     </div>
   );
 }
