@@ -61,7 +61,7 @@ export default function Informacion() {
           <p className="mb-2">Las inscripciones se hacen por equipo, y quedan confirmada una vez se cumplan los siguientes pasos:</p>
           <ul className="list-disc pl-5 mb-4">
             <li>Efectuar el pago y enviar el comprobante (Vía transferencia al CBU indicado)</li>
-            <li>Completar el form de inscripción con los datos de TODOS los jugadores y padre respondable</li>
+            <li>Completar el formulario de inscripción con los datos de TODOS los jugadores y padre responsable</li>
           </ul>
         </div>
 
@@ -79,7 +79,7 @@ export default function Informacion() {
 
       <div className="card mb-6">
         <h2 className="text-2xl font-bold mb-4 rugby-blue">Reglamento y fixture</h2>
-        <p className="mb-4">El reglamento y el fixture del torneo serán publiados en la semana del torneo, una vez las inscripciones hayan concluído.</p>
+        <p className="mb-4">El reglamento y el fixture del torneo serán publicados en la semana del torneo, una vez las inscripciones hayan concluído.</p>
       </div>
 
       <div className="card">

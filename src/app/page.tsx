@@ -32,7 +32,7 @@ export default function Home() {
         <div className="absolute z-1 inset-0 bg-black/50 group-hover:bg-black/70 transition duration-300 rounded-lg" />
       </div>
 
-      <div className="card w-[80%] mx-auto flex items-center flex-col">
+      <div className="card md:w-[80%] mx-auto flex items-center flex-col">
         <h2 className="text-3xl font-bold mb-3 text-red-600">¡Vení a jugar el Gran Torneo de Fútbol Infantil de la Deportiva Francesa!</h2>
         <p className="text-lg mb-4">Una jornada inolvidable donde los más chicos podrán demostrar su talento, hacer nuevos amigos y disfrutar del deporte en un ambiente familiar. ¡No te lo pierdas! Inscribí a tu equipo y sé parte de esta gran fiesta del fútbol infantil.</p>
         <p className="text-lg mb-4">Habla con nosotros para más información sobre el torneo y cómo inscribirte.</p>

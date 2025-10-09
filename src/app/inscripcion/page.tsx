@@ -428,7 +428,7 @@ export default function InscripcionForm() {
               <li className='text-gray-800'>🍌Hidratacion + Fruta</li>
               <li className='text-gray-800'>🏆 Premios</li>
             </ul>
-            <li className='text-lg'>Pasar el comprobante con el monto total a:</li>
+            <li className='text-lg'>Enviar el comprobante con el monto total a:</li>
             <ul className='ml-5 list-disc'>
               <li className='text-gray-800'><Link href="https://wa.me/5491131881755" className='hover:border-b text-blue-400 hover:text-blue-500' target="_blank">+54 9 11 3188 1755</Link></li>
               <li className='text-gray-800'><Link href="https://wa.me/5491123383316" className='hover:border-b text-blue-400 hover:text-blue-500' target="_blank">+54 9 11 2338 3316</Link></li>
