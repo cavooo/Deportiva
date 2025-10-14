@@ -25,7 +25,7 @@ export default function RootLayout({
     <html lang="es">
       <body className={`flex flex-col justify-between min-h-screen ${inter.className}`}>
         <div>
-          <header className="z-[9999] sticky top-0 bg-white text-black  shadow-lg">
+          <header className="z-[9999] sticky top-0 px-4 md:px-0 bg-white text-black  shadow-lg">
             <div className="max-w-6xl mx-auto flex justify-between items-center p-2">
               <Link href="/">
                 <div className="w-fit flex items-center gap-2">
@@ -35,8 +35,8 @@ export default function RootLayout({
               </Link>
               <nav>
                 <ul className="flex space-x-4">
-                  <li><Link href="/" className="font-medium hover:text-gray-600 duration-300">Inicio</Link></li>
-                  <li><Link href="/informacion" className="font-medium hover:text-gray-600 duration-300">Información</Link></li>
+                  <li><Link href="/" className="font-medium text-sm md:text-md hover:text-gray-600 duration-300">Inicio</Link></li>
+                  <li><Link href="/informacion" className="font-medium text-sm md:text-md hover:text-gray-600 duration-300">Información</Link></li>
                 </ul>
               </nav>
             </div>
