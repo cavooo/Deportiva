@@ -23,6 +23,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
+      <header>
+        <script defer src="https://cloud.umami.is/script.js" data-website-id="bbbd6b3e-2580-4eb2-b270-d8a6de3f63c8"></script>
+      </header>
       <body className={`flex flex-col justify-between min-h-screen ${inter.className}`}>
         <div>
           <header className="z-[9999] sticky top-0 px-4 md:px-0 bg-white text-black  shadow-lg">
