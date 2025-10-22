@@ -51,10 +51,10 @@ export default function Home() {
               Hablar con Santi
             </Link>
             <Link
-              href="https://wa.me/5491123383316"
+              href="https://wa.me/5491166836295"
               className="bg-white text-black hover:bg-[whitesmoke] transition-colors px-6 py-2 rounded-md font-medium  inline-block"
             >
-              Hablar con Lulo
+              Hablar con Facu
             </Link>
           </div>
         </div>
