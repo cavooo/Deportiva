@@ -93,10 +93,10 @@ export default function Informacion() {
             Hablar con Santi
           </Link>
           <Link
-            href="https://wa.me/5491123383316"
+            href="https://wa.me/5491166836295"
             className="bg-red-600 hover:bg-red-700 transition-colors px-6 py-2 rounded-md font-medium text-white inline-block"
           >
-            Hablar con Lulo
+            Hablar con Facu
           </Link>
         </div>
       </div>
