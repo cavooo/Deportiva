@@ -48,7 +48,7 @@ export default function Informacion() {
             </ul>
 
             <h3 className="text-xl font-semibold mb-2">Valor</h3>
-            <p className="mb-4">El torneo tendrá un valor de $35.000 pesos por jugador</p>
+            <p className="mb-4">El torneo tendrá un valor de $20.000 pesos por jugador</p>
           </div>
         </div>
       </div>
