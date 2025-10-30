@@ -422,7 +422,7 @@ export default function InscripcionForm() {
         <div className="form-control mt-6">
           <h2 className="text-xl font-semibold mb-4 text-red-600 border-b pb-2">Importante</h2>
           <ol className='list-decimal ml-10'>
-            <li className='text-lg text-gray-800'>El torneo tiene un costo de 35.000$ por jugador</li>
+            <li className='text-lg text-gray-800'>El torneo tiene un costo de $20.000 por jugador</li>
             <li className='text-lg'>Esto incluye:</li>
             <ul className='ml-5 list-disc'>
               <li className='text-gray-800'>🍌Hidratacion + Fruta</li>
@@ -431,7 +431,7 @@ export default function InscripcionForm() {
             <li className='text-lg'>Enviar el comprobante con el monto total a:</li>
             <ul className='ml-5 list-disc'>
               <li className='text-gray-800'><Link href="https://wa.me/5491131881755" className='hover:border-b text-blue-400 hover:text-blue-500' target="_blank">+54 9 11 3188 1755</Link></li>
-              <li className='text-gray-800'><Link href="https://wa.me/5491123383316" className='hover:border-b text-blue-400 hover:text-blue-500' target="_blank">+54 9 11 2338 3316</Link></li>
+              <li className='text-gray-800'><Link href="https://wa.me/5491166836295" className='hover:border-b text-blue-400 hover:text-blue-500' target="_blank">+59 1 1668 36295</Link></li>
             </ul>
             <p className='text-gray-600'>Cualquier duda o consulta también escribanle a ellos</p>
           </ol>
